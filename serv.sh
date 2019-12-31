@@ -295,18 +295,18 @@ while true; do
             elif [[ $v1 = $(echo "\r") && -z $v2 ]]; then
                     # empty line
                     if [ -n "$file" ]; then
-                        echo "file not empty">>"log.txt"
+                        
                         if [[ $hasAuthTag == false ]]; then
-                            echo "auth tag does not exist">>"log.txt"
+
                             senderr 401
                         else
-                            echo "auth tag exist">>"log.txt"
+
                             if [[ $hasLogged == true ]]; then
-                                echo "login valid">>"log.txt"
+
                                 $verbose && echo "$file is requested" >&2
                     			validate_and_send "$file"
                             else
-                                echo "login invalid">>"log.txt"
+
                                 senderr 401
                             fi
                         fi
